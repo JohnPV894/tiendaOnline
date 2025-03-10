@@ -1,0 +1,17 @@
+{
+    "name": "johnsaf/tienda-online",
+    "description": "Proyecto: tienda online , Tutor: Orto , BD:mongo",
+    "autoload": {
+        "psr-4": {
+            "Johnsaf\\TiendaOnline\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "John Arenales"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^1.20"
+    }
+}
