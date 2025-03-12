@@ -1,27 +1,37 @@
 <?php
 
-#header('Content-Type: application/json; charset=utf-8');
+header('Content-Type: application/json; charset=utf-8');
 require __DIR__ . '/../../vendor/autoload.php';
-$instanciaClienteMongo = new MongoDB\Client("mongodb+srv://santiago894:P5wIGtXue8HvPvli@cluster0.6xkz1.mongodb.net/");
-//Anotacion:Validar cliente mongo
-$coleccion_sesiones = $instanciaClienteMongo->selectDatabase("tiendaOnline")->selectCollection("sesiones");
+$clienteMongo = new MongoDB\Client("mongodb+srv://santiago894:P5wIGtXue8HvPvli@cluster0.6xkz1.mongodb.net/");
+$coleccion_sesiones = $clienteMongo->selectDatabase("tiendaOnline")->selectCollection("sesiones");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    
+    $inputUsuario = trim($_POST['usuario']);
+    $inputContraseña = trim($_POST['contraseña']);
+    $devolverObj =[];
 
-      $usuario = "admin";#trim($_POST['inputUsuario']);
-      $contraseña = "admin";#trim($_POST['inputContraseña']);
-      $consulta = $coleccion_sesiones ->insertOne( ["usuario" => $usuario,"contraseña"=>$contraseña,"esAdmin"=>false] );
-      $resultado = [
-            'insertedId' => (string) $consulta->getInsertedId(),
-            'acknowledged' => $consulta->isAcknowledged()
-        ];
+    if( empty($inputUsuario) || empty($inputContraseña) ){
+        $devolverObj["operacionEstado"]=false;
+        $devolverObj["mensaje"]="Imposible, Faltan datos";
         
-        if ($consulta->isAcknowledged()) {
-            header("login");
+    }
+    else if ( $coleccion_sesiones->findOne(["usuario"=>$inputUsuario] ) ==! null ) {
+        $devolverObj["operacionEstado"]=false;
+        $devolverObj["mensaje"]="Cancelada, No se pueden crear usuario con el mismo nombre usuario";
+        
+    }
+    else {
+        $consultaCrear = $coleccion_sesiones ->insertOne( ["usuario" => $usuario,"contraseña"=>$contraseña,"esAdmin"=>false] );
+        if($consultaCrear->isAcknowledged()){
+            $devolverObj["operacionEstado"]=true;
+            $devolverObj["mensaje"]="Exitosa, Creado";
+            
         }else{
-            header("registro");
+            $devolverObj["operacionEstado"]=false;
+            $devolverObj["mensaje"]="Operacion iniciada pero no completada no se creo";
+            
         }
-}else{
-      header("");
-      die("Proceso no Permitido");
+    }   
+    echo json_encode($devolverObj);
 }
