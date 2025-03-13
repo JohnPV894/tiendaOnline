@@ -15,7 +15,7 @@ $(document).ready(function () {
                   error: async function (status, error) {
                         console.error("Error en la petición AJAX:", status, error);
                   }
-                 });
+            });
            
 
 
