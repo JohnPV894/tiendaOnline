@@ -1,30 +1,19 @@
 "use strict";
 let intentosLogin=0;
 $(document).ready(function () {
-      $("#formLogin").submit(function (e) { 
+      $("#formRegistro").submit(function (e) { 
 
             e.preventDefault();
             $.ajax({
                   method: "POST",
-                  url: "../../backend/validarLogin.php",
-                  data:$("#formLogin").serialize(),
+                  url: "../../backend/registrarSesion.php",
+                  data:$("#formRegistro").serialize(),
+                  datatype:"json",
                   //contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                   success: async function (response) { 
-                        console.log( response);  
-                        if (response.estaLogeado && response.esAdmin) {
-                              console.log("logeado Admin");
-
-                              
-                        }else if (response.estaLogeado) {
-                              console.log("logeado");
-                        }else{
-                              $("#usuario").val("");
-                              $("#contraseña").val("");
-                              $("#errores").empty();
-                              $("#errores").append(intentosLogin<5?"Usuario o Contraseña incorrecta,Intentalo de nuevo":"Demasiados intentos, Prueba mas tarde");
-                              console.log("estado 200, Sevidor responde");
-                              intentosLogin++;
-                        }
+                        console.log(await response);
+                        console.log("a");
+                        
                   },
                   error: async function (status, error) {
                         console.error("Error en la petición AJAX:", status, error);

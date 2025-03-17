@@ -3,7 +3,7 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="../styles/stylosLogin.css">
+      <link rel="stylesheet" href="../styles/stylosRegistro.css">
       <link rel="icon" href="../imgs/logoTete.png" id="cabezaLogo">
       <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
       <title>TETE GAMES</title>
@@ -11,18 +11,20 @@
 <body>
       <main>
 
-            <form action="" id="formLogin">
+            <form action="" id="formRegistro">
                   <div id="contenedorLogo"><img src="../imgs/logoTete.png" alt="" id="logo"></div>
+                  <h1>CORREO</h1>
+                  <input type="email" placeholder="Ingrese Correo"  name="correo" id="correo"> 
                   <h1>USUARIO</h1>
-                  <input type="text" placeholder="Tu Usuario"  name="usuario" id="usuario" required> 
+                  <input type="text" placeholder="Elija Usuario"  name="usuario" id="usuario"> 
                   <h1>CONTRASEÑA</h1>
-                  <input type="text" placeholder="Tu Contraseña"  name="contraseña" id="contraseña" required>
+                  <input type="text" placeholder="Elija Contraseña"  name="contraseña" id="contraseña">
                   <input type="submit" id="submit" value="Enviar">
-                  <p id="contLink"><a href="registro.html">¿NO TIENES CUENTA?</a></p>
+                  <p id="contLink"><a href="login.html">¿YA TIENES CUENTA?</a></p>
 
                   <h2 id="errores"></h2>
             </form>
       </main>
-      <script src="../scripts/manejoLogin.js"></script>
+      <script src="../scripts/manejoRegistro.js"></script>
 </body>
 </html>

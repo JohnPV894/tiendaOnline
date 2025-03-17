@@ -50,7 +50,7 @@ form{
       margin-left: auto;
       margin-right: auto;
       border-radius: 50%;
-      max-width: 170px;
+      width: 170px;
 }
 /*Segunda seccion formulario*/
 h1{
@@ -66,7 +66,7 @@ form input{
       padding: 13px 10px;
       font-size: 22px;
 }
-#usuario , #contraseña{
+#usuario , #contraseña , #email{
       background: rgb(224, 224, 224);
 }
 
@@ -74,7 +74,7 @@ form input{
 #submit{
       margin-left: auto;
       margin-right: auto;
-      margin-top: 1em;
+      margin-top: 0.5em;
       margin-bottom: 0.5em;
       padding-left: 2.2em;
       padding-right: 2.2em;
@@ -92,19 +92,12 @@ form input{
       margin-left: auto;
 }
 #contLink a:hover{
-      color: rgb(168, 197, 0);
+      color: rgb(119, 139, 0);
 }
 #contLink a{
       font-size: 20px;
       color: rgb(0 0 0);
       font-weight: bolder;
 }
-#errores{
-      margin-top: 15px;;
-      text-align:center;
-      color: rgb(0 0 0);
-      text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5);
-}
-
 /*@media*/
 /**/

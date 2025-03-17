@@ -9,20 +9,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     $inputUsuario = trim($_POST['usuario']);
     $inputContraseña = trim($_POST['contraseña']);
-    $devolverObj =[];
+    $inputCorreo = trim($_POST['correo']);
+    $devolverObj = [];
 
-    if( empty($inputUsuario) || empty($inputContraseña) ){
+    if( empty($inputUsuario) || empty($inputContraseña) || empty($inputCorreo) ){
         $devolverObj["operacionEstado"]=false;
         $devolverObj["mensaje"]="Imposible, Faltan datos";
+        return;
         
     }
     else if ( $coleccion_sesiones->findOne(["usuario"=>$inputUsuario] ) ==! null ) {
         $devolverObj["operacionEstado"]=false;
         $devolverObj["mensaje"]="Cancelada, No se pueden crear usuario con el mismo nombre usuario";
-        
+        return;
     }
     else {
-        $consultaCrear = $coleccion_sesiones ->insertOne( ["usuario" => $usuario,"contraseña"=>$contraseña,"esAdmin"=>false] );
+        $consultaCrear = $coleccion_sesiones ->insertOne( ["usuario" => $inputUsuario,"contraseña"=>$inputContraseña,"esAdmin"=>false,"correo"=>$inputCorreo] );
         if($consultaCrear->isAcknowledged()){
             $devolverObj["operacionEstado"]=true;
             $devolverObj["mensaje"]="Exitosa, Creado";
