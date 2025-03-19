@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../../vendor/autoload.php';
 $clienteMongo = new MongoDB\Client("mongodb+srv://santiago894:P5wIGtXue8HvPvli@cluster0.6xkz1.mongodb.net/");
-$coleccion_pedidos = $clienteMongo->selectDatabase("tiendaOnline")->selectCollection("pedidos");
+$coleccion_pedidos = $clienteMongo->selectDatabase("tiendaOnline")->selectCollection("carrito");
 session_start();
 
 if($_SERVER['REQUEST_METHOD']=="POST"){

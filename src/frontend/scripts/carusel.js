@@ -1,4 +1,4 @@
-"use strict";
+"use strict";/*
 //Dependencias 
 import Swiper from 'swiper';
 import 'swiper/css';

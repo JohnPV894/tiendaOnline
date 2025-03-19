@@ -3,9 +3,29 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+      <link rel="icon" href="../imgs/logoTete.png" id="cabezaLogo">
       <title>Document</title>
 </head>
 <body>
-      
+      <header>A</header>
+      <main>
+            <h1>Privilegios de Admin:</h1>
+            <h2>Crear productos <input type="button" value="Crear Producto"></h2>
+      </main>
+      <section>
+            <div id="contenedor-formCrearProducto">
+                  <form action="" id="formCrearProducto">
+                        <input type="text" name="nombre" id="" placeholder="nombre producto">
+                        <textarea name="descripcion" id="" placeholder="descripcion"></textarea>
+                        <input type="text" name="url_imagen" id="" placeholder="url imagen">
+                        <input type="text" name="precio" id="" placeholder="precio">
+                        <input type="number" name="stock" id="" placeholder="stock">
+                        <input type="submit" value="ENVIAR" id="crearProducto">
+                        <input type="reset" value="CANCELAR">
+                  </form>
+            </div>
+      </section>
+      <script src="../scripts/admin.js"></script>
 </body>
 </html>
