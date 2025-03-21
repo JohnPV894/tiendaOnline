@@ -17,10 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       if ( $consultaValidacion === null) {
             $devolverObj["esAdmin"]=false;
             $devolverObj["estaLogeado"]=false;
+            $devolverObj["mensaje"] = "login fallido, contraseña o usuario incorrecto";
       }
       elseif($consultaValidacion !== null){
             $devolverObj["esAdmin"]=$consultaValidacion["esAdmin"];
             $devolverObj["estaLogeado"]=true;
+            $devolverObj["mensaje"] = "Login exitoso";
             #Almacenar datos del usuario 
             $_SESSION["sesionActual"]=[ "_id"=>$consultaValidacion["_id"], "esAdmin"=>$consultaValidacion["esAdmin"]];
       }

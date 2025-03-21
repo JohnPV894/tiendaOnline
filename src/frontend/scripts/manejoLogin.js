@@ -13,9 +13,10 @@ $(document).ready(function () {
                         console.log( response);  
                         if (response.estaLogeado && response.esAdmin) {
                               console.log("logeado Admin");
-
+                              window.location.assign("../pages/inicio.html");
                               
                         }else if (response.estaLogeado) {
+                              window.location.assign("../pages/inicio.html");
                               console.log("logeado");
                         }else{
                               $("#usuario").val("");
